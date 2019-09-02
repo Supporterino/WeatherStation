@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Mosbach - {{Forecast.dt_txt | date :'EE. dd.MM.yy'}}</mat-card-title>
+        <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+    </mat-card-header>
+    <mat-card-content>
+        <mat-grid-list cols="1" rowHeight="20px">
+            <mat-grid-tile colspan="1" rowspan="5">
+                <img src="http://openweathermap.org/img/wn/{{Forecast.weather[0].icon}}@2x.png" />
+                <span class="temp">{{Forecast.main.temp | number:'1.0-0'}}°C</span>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-icon>wb_cloudy</mat-icon>
+                <p class="sub">{{Forecast.weather[0].description}}</p>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>

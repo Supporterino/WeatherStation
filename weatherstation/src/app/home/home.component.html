@@ -1,8 +1,15 @@
-<mat-grid-list cols="2">
+<!--<mat-grid-list cols="2" rowHeight="1080px">
     <mat-grid-tile colspan="1" rowspan="1">
-        <p>News</p>
+        <app-news-item *ngFor="let entry of News" [article]="entry"></app-news-item>
     </mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="1">
         <p>Weather</p>
     </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list>-->
+<div class=column>
+    <app-news-item *ngFor="let entry of News" [article]="entry"></app-news-item>
+</div>
+<div class=column>
+    <app-weather-now [WeatherNow]=WeatherNow></app-weather-now>
+    <app-forecast-item *ngFor="let entry of Forecast" [Forecast]="entry"></app-forecast-item>
+</div>

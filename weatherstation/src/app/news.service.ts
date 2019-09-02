@@ -11,6 +11,6 @@ export class NewsService {
   constructor(private http: HttpClient) { }
 
   getTopNews() {
-    //return this.http.get('https://newsapi.org/v2/top-headlines?country=de&apiKey=' + this.apiKey);
+    return this.http.get('https://newsapi.org/v2/top-headlines?country=de&apiKey=' + this.apiKey);
   }
 }

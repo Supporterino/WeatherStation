@@ -1,1 +1,23 @@
-<p>news-item works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{article.title}}</mat-card-title>
+        <mat-card-subtitle>{{article.author}} | {{article.source.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header [collapsedHeight]="'90px'" [expandedHeight]="'90px'">
+                <mat-panel-title>
+                    {{article.description}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <p [innerHTML]=article.content></p>
+            <p><a href={{article.url}} target="_blank">To Article</a></p>
+
+        </mat-expansion-panel>
+    </mat-card-content>
+    <mat-card-footer>
+        <p class="footer">{{article.publishedAt | date :'EE. dd.MM.yy'}}</p>
+    </mat-card-footer>
+</mat-card>
+<mat-divider></mat-divider>

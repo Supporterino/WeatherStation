@@ -9,13 +9,22 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import { NewsItemComponent } from './home/news-item/news-item.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { WeatherNowComponent } from './home/weather-now/weather-now.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatTableModule} from '@angular/material/table';
+import { ForecastItemComponent } from './home/forecast-item/forecast-item.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NewsItemComponent
+    NewsItemComponent,
+    WeatherNowComponent,
+    ForecastItemComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +32,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatGridListModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule,
+    MatExpansionModule,
+    MatChipsModule,
+    MatTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
