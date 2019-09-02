@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from './../news.service';
 import { WeatherService } from './../weather.service';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -12,16 +13,23 @@ export class HomeComponent implements OnInit {
   News;
   WeatherNow;
   Forecast = [];
+  subscription: Subscription;
 
-  constructor(private newsService: NewsService, private weatherService: WeatherService) { }
+  constructor(private newsService: NewsService, private weatherService: WeatherService) {}
 
   ngOnInit() {
+    this.getData()
+    const source = interval(3600000);
+    this.subscription = source.subscribe((val) => this.getData());
+  }
+
+  getData() {
+    this.Forecast = [];
     this.newsService.getTopNews().subscribe((data) => {
       this.News = data["articles"];
     });
     this.weatherService.getWeatherNow().subscribe((data) => {
       this.WeatherNow = data;
-      console.log(this.WeatherNow)
     });
     this.weatherService.getForecast().subscribe((data) => {
       for (let i = 0; i < data["list"].length; i++) {

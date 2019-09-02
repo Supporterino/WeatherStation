@@ -16,6 +16,10 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatTableModule} from '@angular/material/table';
 import { ForecastItemComponent } from './home/forecast-item/forecast-item.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 
 @NgModule({
@@ -37,7 +41,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatExpansionModule,
     MatChipsModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

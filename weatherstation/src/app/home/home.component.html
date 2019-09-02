@@ -6,6 +6,11 @@
         <p>Weather</p>
     </mat-grid-tile>
 </mat-grid-list>-->
+<mat-toolbar>
+    <span>Weather & News</span>
+    <span class="filler"></span>
+    <button mat-button (click)="getData()"><mat-icon>autorenew</mat-icon></button>
+</mat-toolbar>
 <div class=column>
     <app-news-item *ngFor="let entry of News" [article]="entry"></app-news-item>
 </div>
