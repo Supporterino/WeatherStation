@@ -9,6 +9,8 @@
 <mat-toolbar>
     <span>Weather & News</span>
     <span class="filler"></span>
+    <span>{{ time | date: 'HH:mm:ss' }}</span>
+    <span class="filler"></span>
     <button mat-button (click)="getData()"><mat-icon>autorenew</mat-icon></button>
 </mat-toolbar>
 <div class=column>

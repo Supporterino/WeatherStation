@@ -14,10 +14,14 @@ export class HomeComponent implements OnInit {
   WeatherNow;
   Forecast = [];
   subscription: Subscription;
+  time = new Date();
 
-  constructor(private newsService: NewsService, private weatherService: WeatherService) {}
+  constructor(private newsService: NewsService, private weatherService: WeatherService) { }
 
   ngOnInit() {
+    setInterval(() => {
+      this.time = new Date();
+    }, 1000);
     this.getData()
     const source = interval(3600000);
     this.subscription = source.subscribe((val) => this.getData());
@@ -32,9 +36,10 @@ export class HomeComponent implements OnInit {
       this.WeatherNow = data;
     });
     this.weatherService.getForecast().subscribe((data) => {
+      console.log(data["list"])
       for (let i = 0; i < data["list"].length; i++) {
-        if (i % 8 == 0){
-          this.Forecast.push(data["list"][i])
+        if ((new Date(data["list"][i].dt_txt)).getHours() == 12) {
+          this.Forecast.push(data["list"][i]);
         }
       }
     })
